@@ -31,7 +31,7 @@ jobs:
 
       # Sets up MATLAB on the GitHub Actions runner
       - name: Setup MATLAB
-        uses: & { { matrix.setup-matlab-ver } }
+        uses: ${{ matrix.setup-matlab-ver }}
 
       # Runs a set of commands using the runners shell
       - name: Run tests and generate artifacts
