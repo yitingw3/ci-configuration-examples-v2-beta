@@ -23,7 +23,7 @@ classdef TestExamples < matlab.unittest.TestCase
             % Create non-leap year date of March 1st, 2021
             dateStr = "03/01/2021";
 
-            % Calculate expected result
+            % Calculate expected results
             dt = datetime(dateStr,"Format","MM/dd/uuuu");
             doyExpected = day(dt,"dayofyear");
 
