@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with MATLAB Actions
 
-name: MATLAB Build and Run Tests
+name: MATLAB runtest
 
 # Controls when the action will run.
 on:
@@ -28,7 +28,7 @@ jobs:
 
       # Sets up MATLAB on the GitHub Actions runner
       - name: Setup MATLAB
-        uses: matlab-actions/setup-matlab@v1
+        uses: matlab-actions/setup-matlab
 
       # Runs a set of commands using the runners shell
       - name: Run tests and generate artifacts
