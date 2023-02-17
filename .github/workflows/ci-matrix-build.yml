@@ -1,6 +1,6 @@
-# This is a basic workflow to help you get started with MATLAB Actions
+#This workflow runs matrix build with both versions of setup MATLAB action hourly
 
-name: MATLAB runtest
+name: MATLAB matrix build
 
 # Controls when the action will run.
 on:
@@ -9,6 +9,9 @@ on:
     branches: [main, matrix-build]
   pull_request:
     branches: [main]
+  # Schedule the workflow to run hourly
+  schedule:
+    - cron: "0 * * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -33,7 +36,7 @@ jobs:
       - name: Run tests and generate artifacts
         uses: matlab-actions/run-tests@v1
         with:
-          source-folder: sr
+          source-folder: src
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
 
