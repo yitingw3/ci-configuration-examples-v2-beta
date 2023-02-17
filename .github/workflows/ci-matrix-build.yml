@@ -17,7 +17,8 @@ jobs:
   # This workflow contains a single job called "build-v1"
   build-v1:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest\
+    # Always execute this job regardless of the other one failed or not
     if: ${{ always() }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -34,13 +35,14 @@ jobs:
       - name: Run tests and generate artifacts
         uses: matlab-actions/run-tests@v1
         with:
-          source-folder: sr
+          source-folder: src
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
 
   build-v2-beta:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    # Always execute this job regardless of the other one failed or not
     if: ${{ always() }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -57,7 +59,7 @@ jobs:
       - name: Run tests and generate artifacts
         uses: matlab-actions/run-tests@v1
         with:
-          source-folder: src
+          source-folder: sr
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
 
