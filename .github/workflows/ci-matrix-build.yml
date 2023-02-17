@@ -35,7 +35,7 @@ jobs:
       - name: Run tests and generate artifacts
         uses: matlab-actions/run-tests@v1
         with:
-          source-folder: src
+          source-folder: sr
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
 
@@ -59,7 +59,7 @@ jobs:
       - name: Run tests and generate artifacts
         uses: matlab-actions/run-tests@v1
         with:
-          source-folder: sr
+          source-folder: src
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
 
