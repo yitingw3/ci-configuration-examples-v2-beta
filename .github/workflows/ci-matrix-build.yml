@@ -19,7 +19,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest\
     # Always execute this job regardless of the other one failed or not
-    if: ${{ always() }}
+    #if: ${{ always() }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -43,7 +43,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Always execute this job regardless of the other one failed or not
-    if: ${{ always() }}
+    #if: ${{ always() }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
