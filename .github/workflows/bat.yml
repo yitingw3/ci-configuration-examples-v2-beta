@@ -2,8 +2,8 @@
 name: Run MATLAB Tests
 
 # Controls when the action will run.
-# Triggers the workflow on push
 on:
+  # Triggers the workflow on push
   push:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
   # This workflow contains a single job called "my-job"
   my-job:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -28,6 +28,7 @@ jobs:
         uses: matlab-actions/run-tests@v1
         with:
           source-folder: src
+
       # As an alternative to run-tests, you can use run-command to execute a MATLAB script, function, or statement.
       #- name: Run all tests
       #  uses: matlab-actions/run-command@v1
