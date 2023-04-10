@@ -19,7 +19,7 @@ end
 
 function testTask(~)
 % Run unit tests
-addpath("src'");
+addpath("src");
 results = runtests(IncludeSubfolders=true,OutputDetail="terse");
 assertSuccess(results);
 end
