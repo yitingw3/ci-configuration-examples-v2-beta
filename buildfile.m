@@ -26,7 +26,6 @@ end
 
 function archiveTask(~)
 % Create ZIP file
-zipFileName = "source_" + ...
-    string(datetime("now",Format="yyyyMMdd'T'HHmmss"));
+zipFileName = "myZip";
 zip(zipFileName,"*")
 end
