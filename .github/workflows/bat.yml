@@ -14,35 +14,42 @@ on:
 
 jobs:
   # This workflow contains a single job called "my-job"
-  my-job:
+ 
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      matrix:
+        platform: [windows-latest]
+        release: [latest]
+          
+    runs-on: ${{matrix.platform}}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Check out repository
-        uses: actions/checkout@v3
+     - name: Check out repository
+       uses: actions/checkout@v3
         
-      - name: Cache MATLAB
-        id: cache-matlab
-        uses: actions/cache@v3
-        with:
+     - name: Cache MATLAB
+       id: cache-matlab
+       uses: actions/cache@v3
+       with:
           path: ${{ runner.tool_cache }}/MATLAB
+          key: ${{ matrix.platform }}-${{ matrix.release }}
 
       # Sets up MATLAB on the GitHub Actions runner
-      - name: Setup MATLAB
-        uses: matlab-actions/setup-matlab@v2-beta
+     - name: Setup MATLAB
+       uses: matlab-actions/setup-matlab@v2-beta
         
       # Run buildfile
-      - name: Run buildfile
-        uses: matlab-actions/run-build@v1
-        with:
+     - name: Run buildfile
+       uses: matlab-actions/run-build@v1
+       with:
           tasks: archive
           
       # upload zip
-      - name: Upload file
-        uses: actions/upload-artifact@v3
-        with:
+     - name: Upload file
+       uses: actions/upload-artifact@v3
+       with:
           name: my-artifact
           path: myZip.zip
 
