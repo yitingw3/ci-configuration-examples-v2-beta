@@ -11,6 +11,7 @@ end
 
 function checkTask(~)
 % Identify code issues
+disp("Start Running code issues");
 issues = codeIssues;
 assert(isempty(issues.Issues),formattedDisplayText( ...
     issues.Issues(:,["Location" "Severity" "Description"])))
@@ -18,6 +19,7 @@ end
 
 function testTask(~)
 % Run unit tests
+addpath("src'");
 results = runtests(IncludeSubfolders=true,OutputDetail="terse");
 assertSuccess(results);
 end
